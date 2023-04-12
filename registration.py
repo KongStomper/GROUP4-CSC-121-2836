@@ -8,7 +8,7 @@ course_hours = {'CSC101': 3, 'CSC102': 4, 'CSC103': 5, 'CSC104': 3}
 course_roster = {'CSC101': ['1004', '1003'], 'CSC102': ['1001'], 'CSC103': ['1002'], 'CSC104': []}
 course_max_size = {'CSC101': 3, 'CSC102': 2, 'CSC103': 1, 'CSC104': 3}
 
-###LOGIN FUNCTION HERE#####
+###LOGIN FUNCTION+ Encryption for pin HERE#####
 def login(id, s_list):
 
 

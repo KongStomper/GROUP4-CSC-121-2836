@@ -1,14 +1,13 @@
-def calculate_hours_and_bill(id, s_in_state, c_rosters, c_hours):
- in_state = s_in_state.get(id, False)
-    courses = [c for c, s in c_rosters.items() if id in s]
-    total_hours = sum(c_hours.get(c, 0) for c in courses)
-    if in_state:
-        tuition_cost = 100
-    else:
-        tuition_cost = 200
-
-    total_cost = total_hours * tuition_cost
-
-    return total_hours, total_cost
+def calculate_billing_info(id, s_in_state, c_rosters, c_hours):
+    hours = 0
+    cost = 0
+    for course in c_rosters:
+        if id in c_rosters[course]:
+            hours += c_hours.get(course, 0)
+            if s_in_state:
+                cost += c_hours[course] * 225
+            else:
+                cost += c_hours[course] * 850
+        return hours, cost
 
 def display_hours_and_bill(hours, cost):

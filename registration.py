@@ -2,16 +2,35 @@ from student import add_course, drop_course, list_courses
 from billing import calculate_hours_and_bill, display_hours_and_bill
 
 # Student data
-student_list = [('1001', '111'), ('1002', '222'), ('1003', '333'), ('1004', '444')]
 student_in_state = {'1001': True, '1002': False, '1003': True, '1004': False}
 course_hours = {'CSC101': 3, 'CSC102': 4, 'CSC103': 5, 'CSC104': 3}
 course_roster = {'CSC101': ['1004', '1003'], 'CSC102': ['1001'], 'CSC103': ['1002'], 'CSC104': []}
 course_max_size = {'CSC101': 3, 'CSC102': 2, 'CSC103': 1, 'CSC104': 3}
 
 ###LOGIN FUNCTION+ Encryption for pin HERE#####
+import hashlib
+
+def encrypt_pin(pin):
+    hash_object = hashlib.sha256(pin.encode('utf-8'))
+    return hash_object.hexdigest()
+
 def login(id, s_list):
+    for student in s_list:
+        if student[0] == id:
+            correct_pin = student[1]
+            break
+    else:
+        print("Incorrect ID.")
+        return False
 
-
+    encrypted_pin = encrypt_pin(input("Enter your PIN: "))
+    if encrypted_pin == correct_pin:
+        print("Verification successful!")
+        return True
+    else:
+        print("Incorrect PIN.")
+        return False
+student_list = [('1001', encrypt_pin('111')), ('1002', encrypt_pin('222')), ('1003', encrypt_pin('333')), ('1004', encrypt_pin('444'))]
 
   
 

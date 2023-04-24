@@ -34,7 +34,7 @@ def list_courses(id, c_roster):
     registred_courses = []
     for course, students in c_roster.items():
         for id in students:
-            registered_courses.append(course)
+                registered_courses.append(course)
         print(f"Student {id} is registered for the following courses:")
         for course in registered_courses
             print(registered_courses)

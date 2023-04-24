@@ -39,3 +39,34 @@ def list_courses(id, c_roster):
         for course in registered_courses
             print(registered_courses)
         print(f"Total number: {len(registered_courses)}")
+        
+        
+def calculate_class_and_student_gpa(course_roster, student_gpa, id):
+    total_gpa = 0
+    total_students = 0
+    student_found = False
+    
+    for course, students in course_roster.items():
+        for student in students:
+            if student == id:
+                student_found = True
+                for s_id, gpa in student_gpa:
+                    if s_id == id:
+                        print(f"Student {id} has a GPA of: {gpa:.2f}")
+                        total_gpa += gpa
+                        total_students += 1
+                break
+                
+        if student_found:
+            break
+                
+    if not student_found:
+        print(f"No student with ID {id} found in any courses.")
+        return None
+
+    class_size = total_students
+    class_gpa = total_gpa / class_size
+
+    print(f"Class average GPA: {class_gpa:.2f}")
+    return class_gpa
+

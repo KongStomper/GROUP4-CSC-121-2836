@@ -46,7 +46,13 @@ def main():
             registered_courses = []
             waitlist = []
             while True:
-                print("\n |Enter Option number: \n |1: Add Course| \n |2: Drop Course| \n |3: List Courses| \n |4: Show Bill| \n |0 to exit:| ")
+                print("\n    Select Option: \n" + " -------- ".center(20) +
+                    f"\n|{'1: Add Course':^20s}|\n" + " -------- ".center(20) +
+                    f"\n|{'2: Drop Course':^20s}|\n" + " -------- ".center(20) +
+                    f"\n|{'3: List Courses':^20s}|\n" + " -------- ".center(20) +
+                    f"\n|{'4: Show Bill':^20s}|\n" + " -------- ".center(20) +
+                    f"\n|{'5: Show GPA:':^20s}|\n" + " -------- ".center(20) +
+                    f"\n|{'0 to exit:':^20s}|\n" + " -------- ".center(20))
                 choice = input()
                 if choice == '0':
                     break

@@ -82,6 +82,7 @@ def main():
                 elif choice == '4':
                     credit_hours, cost = calculate_hours_and_bill(id, student_in_state, course_roster, course_hours)
                     display_hours_and_bill(credit_hours, cost)
-
+                elif choice == '5':
+                    calculate_class_and_student_gpa(course_roster, student_gpa, id)
 if __name__ == '__main__':
     main()

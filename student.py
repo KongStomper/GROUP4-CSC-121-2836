@@ -31,16 +31,15 @@ def drop_course(id, c_roster, registered_courses, waitlist, course, c_max_size):
         print(f"{next_student} from waitlist added to {next_course}")
 
 def list_courses(id, c_roster):
-    registred_courses = []
+    registered_courses = []
     for course, students in c_roster.items():
-        for id in students:
-                registered_courses.append(course)
-        print(f"Student {id} is registered for the following courses:")
-        for course in registered_courses:
-            print(registered_courses)
-        print(f"Total number: {len(registered_courses)}")
-        
-        
+        if id in students:
+            registered_courses.append(course)
+    print("Courses registered:")
+    for course in registered_courses:
+        print(course)
+    print(f"Total number: {len(registered_courses)}")
+
 def calculate_class_and_student_gpa(course_roster, student_gpa, id):
     total_gpa = 0
     total_students = 0
@@ -69,4 +68,3 @@ def calculate_class_and_student_gpa(course_roster, student_gpa, id):
 
     print(f"Class average GPA: {class_gpa:.2f}")
     return class_gpa
-

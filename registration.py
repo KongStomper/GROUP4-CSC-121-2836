@@ -1,4 +1,4 @@
-from student import add_course, drop_course, list_courses
+from student import add_course, drop_course, list_courses, calculate_class_and_student_gpa
 from billing import calculate_hours_and_bill, display_hours_and_bill
 
 # Student data
